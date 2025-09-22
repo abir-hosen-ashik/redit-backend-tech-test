@@ -122,10 +122,23 @@ Successful response looks like:
     "node": {
       "_id": "6297172e70a0c165b989cd10",
       "name": "User's Email",
-      "trigger": { "_id": "6297176c10f525b8a81a9304", "name": "Email Trigger" },
-      "responses": [{ "_id":"6297189510f525833b1a9305","name":"Get Email Response" }],
-      "actions": [{ "_id":"6530933e6a1690d2f0c78a92","name":"Send Email Action" }],
-      "parents": [{ "_id":"rCMUtmL3aOULyqBL", "name":"Sign up Webinar" }]
+      "trigger": {
+        "_id": "6297176c10f525b8a81a9304",
+        "name": "Email Trigger"
+      },
+      "responses": [
+        {
+          "_id": "6297189510f525833b1a9305",
+          "name": "Get Email Response"
+        }
+      ],
+      "actions": [],
+      "parents": [
+        {
+          "_id": "6297164810f52524ba1a9300",
+          "name": "Sign up Webinar"
+        }
+      ]
     }
   }
 }
@@ -140,4 +153,5 @@ Successful response looks like:
 * As per pdf schema type definition `nodeId` kept optional.
 * `node` returns `null` → node id not found in `info_doc/node.json` (check `_id` or compositeId mapping).
 * If server not starting: check node version and that JSON files are readable in `require()`.
+* As there are no mentions about `postActions` or `preActions` will be a part of `actions` on `node` object, so they are not concatenated in `node.action` attribute.
 
